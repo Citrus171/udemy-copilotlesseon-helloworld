@@ -20,6 +20,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     println!("Fetched coin prices successfully.");
+    println!("Fetched coin prices successfully2");
 
     Ok(())
 }
