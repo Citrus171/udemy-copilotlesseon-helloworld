@@ -1,0 +1,1 @@
+- whenever you write new code . you must summarize it and add the code to the log.txt file.

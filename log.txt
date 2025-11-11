@@ -1,23 +1,8 @@
-use reqwest;
-use serde::Deserialize;
-use std::collections::HashMap;
+2025-11-11 変更ログ
 
-#[derive(Deserialize)]
-struct CoinPrice {
-    usd: f64,
-}
+概要: `src/main.rs` に四則演算のサンプルコードを追加しました。変数名は要求どおりcamelCaseにしています。
 
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,dogecoin,binancecoin,cardano,solana,polkadot,shiba-inu,litecoin&vs_currencies=usd";
-
-    let response = reqwest::get(url).await?;
-    let json: HashMap<String, CoinPrice> = response.json().await?;
-
-    // 通貨名と価格のマッピングを表示
-    for (coin, data) in json.iter() {
-        println!("{}: ${:.2}", coin, data.usd);
-    }
+追加したコード:
 
     // --- 四則演算のサンプル（変数はcamelCase） ---
     let firstNumber: f64 = 10.0;
@@ -33,6 +18,3 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("{} - {} = {}", firstNumber, secondNumber, difference);
     println!("{} * {} = {}", firstNumber, secondNumber, product);
     println!("{} / {} = {}", firstNumber, secondNumber, quotient);
-
-    Ok(())
-}
